@@ -8,9 +8,6 @@ RUN mkdir \
     opkg update; \
     opkg install \
         bash \
-        wget \
-        tar \
     ;
 
-ENTRYPOINT [ "/bin/bash" ]
-CMD [ "/sbin/init" ]
+CMD [ "/bin/bash" ]
