@@ -1,20 +1,18 @@
 # cusspvz/openwrt
 
-:minibus: Super small container based on Routers OpenWRT Linux OS
+:minibus: Super small container (4MB) based on Routers OpenWRT Linux OS
 
 ## Usage
 
 ### Running a terminal
-```
-docker run --rm -ti cusspvz/openwrt:VERSION
-bash #
+```bash
+docker run --rm -ti cusspvz/openwrt:VERSION /bin/bash
 ```
 
 ### Using as base image
-```
+```Dockerfile
 FROM cusspvz/openwrt:VERSION
 RUN opkg install nano git ...
-...
 ```
 
 ## Versions
@@ -26,5 +24,5 @@ RUN opkg install nano git ...
 
 ### Building image
 ```bash
-ARCH=x86 VERSION=15.04 make build
+ARCH="x86" VERSION="15.04" make build
 ```
