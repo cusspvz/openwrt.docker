@@ -60,7 +60,7 @@ build-all:
 		for VERSION in ${ALL_VERSIONS}; do \
 			make build; \
 		done; \
-		make VERSION="latest" build;
+		make VERSION="latest" build; \
 	done;
 
 push-all:
@@ -68,5 +68,5 @@ push-all:
 		for VERSION in ${ALL_VERSIONS}; do \
 			make push; \
 		done; \
-		make VERSION="latest" push;
+		make VERSION="latest" push; \
 	done;

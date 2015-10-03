@@ -10,4 +10,4 @@ RUN mkdir \
         bash \
     ;
 
-CMD [ "/bin/bash" ]
+CMD [ "/bin/login.sh" ]
