@@ -18,11 +18,11 @@ RUN opkg install nano git ...
 ## Versions
 
 ### x86
-* 15.04 - `cusspvz/openwrt:15.04-x86`
+* 15.05 - `cusspvz/openwrt:15.05-x86`
 
 ## Developing
 
 ### Building image
 ```bash
-ARCH="x86" VERSION="15.04" make build
+ARCH="x86" VERSION="15.05" make build
 ```
