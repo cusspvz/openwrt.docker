@@ -1,5 +1,5 @@
 ALL_VERSIONS := 10.03 10.03.1 12.09 14.07 15.05
-ALL_ARCHS := x86
+ALL_ARCHS := x86 x64
 LATEST_VERSION := 15.05
 
 VERSION ?= 15.05
@@ -11,6 +11,9 @@ ifeq ($(VERSION),latest)
 endif
 
 # VERSIONS
+ifeq ($(TAG),15.05-x64)
+	ROOTFS_URL := https://downloads.openwrt.org/chaos_calmer/15.05/x86/64/openwrt-15.05-x86-64-rootfs.tar.gz
+endif
 ifeq ($(TAG),15.05-x86)
 	ROOTFS_URL := https://downloads.openwrt.org/chaos_calmer/15.05/x86/generic/openwrt-15.05-x86-generic-Generic-rootfs.tar.gz
 endif
@@ -39,9 +42,11 @@ run-bash: build
 	@docker run --rm -ti cusspvz/openwrt:${TAG} /bin/bash
 
 pull-root:
+	@if [ "${ROOTFS_URL}" == "" ]; then echo "No ROOTFS available"; exit 1; fi
 	@docker images | grep openwrt-${TAG} || docker import ${ROOTFS_URL} openwrt-${TAG}
 
 pull-root-forced:
+	@if [ "${ROOTFS_URL}" == "" ]; then echo "No ROOTFS available"; exit 1; fi
 	@echo "Pulling $(TAG)"
 	docker import ${ROOTFS_URL} openwrt-${TAG}
 
