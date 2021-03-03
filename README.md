@@ -1,6 +1,6 @@
-# cusspvz/openwrt
+# dianariyanto/openwrt-armvirt.docker
 
-:minibus: Super small container (3MB) based on Routers OpenWRT Linux OS
+:minibus: Super small Docker container (3MB) based on Routers OpenWRT Linux OS for ARM x64/x86
 
 ## Usage
 
@@ -57,3 +57,5 @@ RUN opkg install nano git ...
 ```bash
 ARCH="x86" VERSION="15.05" make build
 ```
+## Original Script
+https://github.com/cusspvz/openwrt-builder.docker
