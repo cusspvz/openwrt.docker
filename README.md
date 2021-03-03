@@ -6,14 +6,14 @@
 
 ### Running bash terminal
 ```
-josemoreira@MacBook-Pro-de-JM ~/G/c/openwrt.docker> docker run --rm -ti cusspvz/openwrt:15.05-x86
+dianariyanto@hg680p ~/Docker/openwrt-armvirt.docker> docker run --rm -ti dianariyanto/openwrt-armvirt:19.07.7-64
  === IMPORTANT ============================
   Use 'passwd' to set your login password
   this will disable telnet and enable SSH
  ------------------------------------------
 
 
-BusyBox v1.23.2 (2015-07-25 07:32:21 CEST) built-in shell (ash)
+BusyBox v1.30.1 () built-in shell (ash)
 
   _______                     ________        __
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
@@ -21,13 +21,7 @@ BusyBox v1.23.2 (2015-07-25 07:32:21 CEST) built-in shell (ash)
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
  -----------------------------------------------------
- CHAOS CALMER (15.05, r46767)
- -----------------------------------------------------
-  * 1 1/2 oz Gin            Shake with a glassful
-  * 1/4 oz Triple Sec       of broken ice and pour
-  * 3/4 oz Lime Juice       unstrained into a goblet.
-  * 1 1/2 oz Orange Juice
-  * 1 tsp. Grenadine Syrup
+ OpenWrt 19.07.7, r11306-c4a6851c72
  -----------------------------------------------------
 root@23c9170005d3:/# ls
 bin      dev      etc      lib      mnt      overlay  proc     rom      root     sbin     sys      tmp      usr      var      www
@@ -35,27 +29,24 @@ bin      dev      etc      lib      mnt      overlay  proc     rom      root    
 
 ### Using as base image
 ```Dockerfile
-FROM cusspvz/openwrt:15.05-x86
-RUN opkg install nano git ...
+FROM dianariyanto/openwrt-armvirt:19.07.7-64
+RUN opkg install luci-app-mwan3 ...
 ```
 
 ## Versions
 
 ### x86
-* **Chaos Calmer** 15.05 - `cusspvz/openwrt:15.05-x86`
-* **Barrier Breaker** 14.07 - `cusspvz/openwrt:14.07-x86`
-* **Attitude Adjustment** 12.09 - `cusspvz/openwrt:12.09-x86`
-* **Backfire** 10.03.1 - `cusspvz/openwrt:10.03.1-x86`
-* **Backfire** 10.03 - `cusspvz/openwrt:10.03-x86`
+* **OpenWrt** 19.07.7 - `dianariyanto/openwrt-armvirt:19.07.7-32`
 
 ### x64
-* **Chaos Calmer** 15.05 - `cusspvz/openwrt:15.05-x64`
+* **OpenWrt** 19.07.7 - `dianariyanto/openwrt-armvirt:19.07.7-64`
 
 ## Developing
 
 ### Building image
 ```bash
-ARCH="x86" VERSION="15.05" make build
+ARCH="64" VERSION="19.07.7" make build
 ```
+
 ## Original Script
 https://github.com/cusspvz/openwrt-builder.docker
